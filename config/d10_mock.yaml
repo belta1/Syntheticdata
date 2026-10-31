@@ -1,0 +1,11 @@
+# Configuración para desarrollo local con data mock (d10synth mock).
+rutas:
+  real: data/mock
+  modelo: modelos/mock
+  sintetico: data/sintetico_mock
+  reportes: reportes/mock
+
+generacion:
+  deudores: 50000
+  meses: 12
+  chunk_deudores: 250000

@@ -1,0 +1,213 @@
+CODIGO : D10
+NOMBRE : INFORMACION DE DEUDORES ARTICULO 14 LGB
+SISTEMA : Deudores
+PERIODICIDAD : Semanal y al cierre de cada mes
+PLAZO : 3 días hábiles
+En este archivo deben incluirse todos los créditos efectivos y contingentes que son objeto de refundición por esta Comisión, según lo
+indicado en el Capítulo 18-5 de la Recopilación Actualizada de Normas.
+La información debe estar referida a los viernes de cada semana y al
+último día de cada mes.
+Primer registro
+1. Código de la institución financiera .... 9(04)
+2. Identificación del archivo ............. X(03)
+3. Fecha ................................ F(08)
+4 Filler ................................. X(63)
+_____
+Largo del registro 78 bytes
+1. CODIGO DE LA IF.
+Corresponde a la identificación de la institución financiera según la codificación dada por esta Comisión.
+2. IDENTIFICACION DEL ARCHIVO.
+Corresponde a la identificación del archivo. Debe ser
+"D10".
+3. FECHA.
+Corresponde a la fecha del viernes (aaaammdd) de la semana
+a la que se refiere la información y/o a la fecha (aaaammdd)
+del último día de cada mes, cuando sea el caso.
+Estructura de los registros
+1. RUT del deudor ......................... R(09) VX(01)
+2. Nombre o razón social del deudor ....... X(50)
+3. Tipo de deudor ...................... 9(01)
+4. Tipo de créditos u operaciones ......... 9(02)
+5 Morosidad ................. 9(01)
+6 Monto 9(14)
+_____
+Largo del registro 78 bytes
+Circular N°2.293 / 02.09.2021 por Resolución N° 4850
+Archivo D10 / hoja 2
+Definición de términos
+1. RUT DEL DEUDOR.
+Corresponde al RUT del deudor.
+2. NOMBRE O RAZON SOCIAL DEL DEUDOR.
+Corresponde al nombre o razón social del deudor.
+3. TIPO DE DEUDOR
+Corresponde al tipo de deudor en relación con el crédito
+que se informa en el registro, según se trate de:
+Código Calidad del deudor
+1 Deudor directo
+2 Deudor indirecto
+La calidad de directo o indirecto corresponderá a lo indicado en el Capítulo 12-3 de la Recopilación Actualizada
+de Normas, sin perjuicio de que en este archivo deben informarse sólo las obligaciones a que se refiere el Capítulo
+18-5 de esa Recopilación, con las excepciones que se
+indican en este mismo Capítulo. Se incluirán las deudas
+indirectas aun cuando el deudor no tuviere deudas directas.
+4. TIPO DE CREDITOS U OPERACIONES
+Código que da cuenta del tipo de operación a que corresponde
+el monto incluido en el respectivo registro, según:
+Código Tipo de operaciones
+1 Créditos comerciales
+2 Créditos de consumo
+3 Créditos para vivienda
+4 Operaciones financieras
+5 Instrumentos de deuda adquiridos
+6 Créditos contingentes
+7 Cupos de líneas de crédito de libre disposición
+8 Créditos para estudios superiores
+Ley N°20.027
+9 Créditos educacionales con garantía CORFO
+10 Otros créditos para estudios superiores
+11 Créditos contingentes para estudios superiores
+12 Créditos para la salud
+21 Créditos comerciales securitizados
+22 Créditos de consumo securitizados
+23 Créditos para vivienda securitizados
+24 Otros créditos securitizados
+Circular N°2.349 / 03.06.2024 por Resolución N°5051
+Archivo D10 / hoja 3
+25 Créditos comerciales subrogados por el pago de
+garantías estatales
+26 Créditos de consumo subrogados por el pago de
+garantías estatales
+27 Créditos para vivienda subrogados por el pago
+de garantías estatales
+28 Otros créditos subrogados por el pago de
+garantías estatales
+Esta clasificación considera como:
+Créditos comerciales: todos aquellos créditos que no corresponden a las operaciones que se indican a continuación.
+Créditos de consumo: comprende los créditos cuyos deudores
+son personas naturales y que se otorgan para financiar
+bienes de consumo o el pago de servicios. Comprenden: a)
+Créditos pagaderos en cuotas; b) Créditos provenientes de
+la utilización de tarjetas de crédito; c) Créditos con
+líneas de crédito o sobregiros en cuentas corrientes; y d)
+Otros créditos con aquellas características.
+Créditos para vivienda: corresponde a créditos que se
+otorgan a personas naturales para adquisición, ampliación,
+reparación o construcción de su vivienda. Comprende los
+préstamos en letras de crédito, con mutuos hipotecarios
+endosables u otros con aquellas características. Incluye
+los créditos de enlace que se hubieren otorgado antes del
+perfeccionamiento de los mutuos y los créditos
+complementarios destinados a la adquisición, ampliación,
+reparación o construcción de la vivienda.
+Operaciones financieras: Corresponde a contratos con pacto
+de retroventa y obligaciones por préstamos de valores.
+Instrumentos de deuda adquiridos: Corresponde a las deudas
+de los emisores de los instrumentos que para efectos
+contables forman parte de la cartera de negociación, disponibles para la venta o inversiones al vencimiento.
+Créditos contingentes: Corresponde a los créditos
+contingentes que deben informarse según lo previsto en el
+Capítulo 18-5 de la Recopilación Actualizada de Normas, con
+excepción de las líneas de crédito y otros contingentes que
+se informan con los códigos siguientes (códigos 7 y 11).
+Cupos de líneas de crédito de libre disposición: Corresponde
+a los créditos aprobados que pueden ser utilizados por la
+sola voluntad del cliente, tales como los sobregiros
+pactados en cuenta corriente o los cupos para tarjetas de
+crédito. Se trata sólo del monto correspondiente a los
+importes no utilizados, en que la institución está
+contractualmente obligada a admitir el crédito.
+Circular N°2.349 / 03.06.2024 por Resolución N°5051
+Archivo D10 / hoja 4
+En el caso de las tarjetas de crédito, se entiende que el
+cupo corresponde sólo al monto no utilizado, debiendo incluirse en consecuencia como créditos (de consumo o comerciales, según corresponda), los montos ya utilizados,
+sea que el banco haya pagado o no las operaciones efectuadas
+con la tarjeta a la fecha a que se refiere la información.
+Créditos para estudios superiores Ley N°20.027: comprende
+aquellos concedidos para el financiamiento de estudios
+superiores otorgados de acuerdo con la Ley N°20.027 CAE).
+Créditos educacionales con garantías CORFO: corresponde a
+préstamos estudiantiles otorgados con algún tipo de
+garantía de CORFO.
+Otros créditos para estudios superiores: comprende todos
+los demás créditos otorgados para el financiamiento de
+estudios superiores distintos a los de la Ley N° 20.027 y
+de aquellos con garantía CORFO.
+Créditos contingentes para estudios superiores: Corresponde
+a los créditos contingentes asociados a préstamos
+educacionales de la Ley N°20.027 u otros que generen una
+obligación contingente.
+Créditos para la salud: Corresponde a deudas contraídas con
+prestadores de salud públicos o privados y empresas
+relacionadas, sean instituciones financieras, casas
+comerciales u otras similares, en el marco de una atención
+o acción de salud ambulatoria, hospitalaria o de emergencia
+sean éstas consultas, procedimientos, exámenes, programas,
+cirugías u operaciones.
+Créditos securitizados: Corresponde a créditos vendidos o
+cedidos a empresas securitizadoras o fondos de créditos
+securitizados, en la medida que el cedente o alguna de sus
+filiales, lleve a cabo la administración de dichos
+créditos. Se sub clasifican como créditos securitizados
+comerciales, consumo, vivienda u otros, según haya sido su
+clasificación previo a la securitización.
+Créditos subrogados por el pago de garantías estatales:
+Corresponde a la porción de aquellos créditos en que se
+hizo efectivo el pago de una garantía estatal (FOGAPE y
+FOGAES), debiendo ser informados los importes impagos
+correspondientes a la subrogación que se origina por tal
+motivo, cuando la institución financiera mantiene la
+responsabilidad de su cobranza. La fracción no garantizada
+se continúa informando con el código originalmente
+asignado.
+Circular N°2.349 / 03.06.2024 por Resolución N°5051
+Archivo D10 / hoja 5
+5. MOROSIDAD
+Debe incluirse un código para indicar la situación en que
+se encuentra el importe informado en relación con el cumplimiento oportuno de su pago, de acuerdo con lo siguiente:
+Código Tiempo transcurrido desde el vencimiento
+0 Crédito al día
+1 Menos de 30 días
+2 30 días o más, pero menos de 60 días
+3 60 días o más, pero menos de 90 días
+4 90 días o más, pero menos de 180 días
+5 180 días o más, pero menos de un año
+6 Un año o más, pero menos de dos años
+7 Dos años o más, pero menos de tres años
+8 Tres años o más, pero menos de 4 años
+9 Cuatro años o más
+Cuando el registro corresponda a créditos contingentes,
+incluidos los cupos de líneas de crédito de libre disposición, se utilizará el código “0”.
+La información por morosidad debe tomar en cuenta las
+cláusulas contractuales y los eventuales convenios de pago
+posteriores, de modo que esa información refleje efectivamente lo que el deudor ha dejado de pagar según el
+calendario de pago vigente.
+En el caso de créditos en cuotas con cláusula de aceleración, la morosidad de la parte que se hace exigible sin
+haberse cumplido el plazo de vencimiento normal originalmente previsto, quedará establecida según la fecha en
+que se hizo efectiva esa cláusula.
+6. MONTO
+Debe incluirse el monto que corresponda según lo definido
+en los campos anteriores.
+En general, de acuerdo con lo indicado en el Capítulo 18-
+5 de la Recopilación Actualizada de Normas, los valores que
+deben informarse en este archivo son aquellos que se
+obtienen de acuerdo con las condiciones convenidas para los
+créditos otorgados, sin considerar los intereses penales
+pactados para el período de mora transcurrido ni gastos de
+cobranza.
+En el caso de operaciones contingentes, corresponderá al
+monto que podría traducirse en un crédito efectivo.
+En el caso de los créditos subrogados por pago de una
+garantía estatal, corresponde informar el total del monto
+adeudado al garante, incluidos sus intereses y comisiones
+que correspondan.
+Circular N°2.349 / 03.06.2024 por Resolución N°5051
+Archivo D10 / hoja 6
+Los créditos u operaciones pagaderas en moneda extranjera
+se expresarán en pesos según el tipo de cambio de representación contable utilizado por el banco.
+Las operaciones reajustables deberán estar calculadas según
+el valor del factor o unidad de cuenta pactado (UF, tipo
+de cambio, etc.) correspondiente al día a que se refiere
+la información.
+El devengo de reajustes e intereses deberá ser reconocido
+en la semana que la entidad lo compute, o en su defecto a
+fin de mes.

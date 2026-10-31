@@ -1,0 +1,68 @@
+# Configuración de d10synth para la data real (PC con acceso a srvdatscience02).
+
+fuente:
+  driver: "ODBC Driver 17 for SQL Server"
+  servidor: srvdatscience02
+  base: cmfdat
+  tabla: dbo.D10C
+  trusted_connection: true      # si es false, usa variables de entorno D10_USER / D10_PASSWORD
+
+# Nombre de cada columna canónica en la tabla fuente
+columnas:
+  if_id: rutis_sbif
+  periodo: periodo
+  rut: rut_deudor
+  tipo_deudor: tipo_deudor
+  tipo_credito: tipo_credito
+  tipo_mora: tipo_mora
+  monto: monto
+
+formato:
+  periodo: auto                 # auto | date | yyyymmdd | yyyymm
+  rut: auto                     # auto | sin_dv | con_dv
+  umbral_rut_empresa: 50000000  # RUT >= umbral => empresa
+
+importacion:
+  tipo: sql                     # sql | csv | parquet | d10  (ver docs/03_importacion_datos.md)
+  entrada: null                 # csv/parquet/d10: archivo, carpeta o patrón glob, p. ej. "E:/export_d10/*.csv"
+  desde: null                   # primer cierre de mes "2023-01-31" (inclusive); null = sin límite
+  hasta: null
+  muestra_pct: 100              # % de deudores (muestra estable por RUT, la misma en todos los periodos)
+  batch_filas: 500000           # sql: filas por lote al leer
+  csv:
+    separador: ";"
+    encabezado: true
+    nombres: null               # lista de nombres si el CSV no trae encabezado, en el orden del archivo
+    encoding: utf8              # utf8 | utf8-lossy (latin-1 u otros: los caracteres raros no afectan columnas numéricas)
+    decimal: "."                # "," si el monto viene como 1.234,00
+
+rutas:
+  real: data/real
+  modelo: modelos/d10
+  sintetico: data/sintetico
+  reportes: reportes
+
+ajuste:
+  holdout_pct: 20               # % de deudores reservados (no se usan para ajustar; sirven para privacidad y TSTR)
+  k_min: 10                     # supresión: conteos < k_min no entran al modelo
+  k_grupo: 200                  # mínimo de observaciones para usar una distribución condicional propia (si no, fallback)
+  max_patrones: 3000            # patrones de productos por segmento
+  max_perfiles_mora: 8
+  n_cuantiles: 201
+  cuantil_min: 0.001
+  cuantil_max: 0.999
+  max_if_por_deudor: 12
+
+generacion:
+  deudores: 200000              # deudores en el primer mes
+  meses: 12
+  periodo_inicio: null          # "2024-01-31"; null = primer periodo de la data de ajuste
+  chunk_deudores: 250000
+  semilla: 42
+  dispositivo: auto             # auto | cuda | cpu
+  excluir_ruts_reales: true     # evita asignar RUTs que existen en rutas.real
+  rut_salida: sin_dv            # sin_dv | con_dv
+
+evaluacion:
+  muestra_privacidad: 50000
+  semilla: 7
